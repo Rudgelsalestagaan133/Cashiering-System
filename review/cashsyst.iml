@@ -1,11 +1,267 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<module type="JAVA_MODULE" version="4">
-  <component name="NewModuleRootManager" inherit-compiler-output="true">
-    <exclude-output />
-    <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
-    </content>
-    <orderEntry type="inheritedJdk" />
-    <orderEntry type="sourceFolder" forTests="false" />
-  </component>
-</module>
+package cashiering;
+
+import java.util.*;
+import java.util.Scanner;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+
+public class rogelio {
+    public static Scanner scan = new Scanner(System.in);
+
+    public static void main(String[] args) {
+
+
+        // Display date & time
+        System.out.println("_______________");
+
+
+        System.out.println("_______________");
+
+        // REGISTIER CASHIER
+
+
+        System.out.println("-REGISTRATION-");
+
+
+        System.out.println("ENTER USERNAME: \n" +
+                "-");
+        String Name = scan.nextLine();
+
+        System.out.println("ENTER PASSWORD \n" +
+                "-");
+        String pass = scan.nextLine();
+
+        System.out.print("-LOG IN-");
+        boolean login = true;
+        while (login) {
+            System.out.println("ENTER USERNAME: \n " +
+                    "- ");
+            String user = scan.nextLine();
+
+            System.out.println("ENTER PASSWORD: \n " +
+                    "-");
+            String password = scan.nextLine();
+
+            if ((!user.equals(Name)) && (!password.equals(pass))) {
+                System.out.println("The username and password are incorrect, Try again \n");
+
+            } else if ((user.equals(Name)) && (password.equals(pass))) {
+                System.out.println("SUCCESSFULLY LOG IN \n");
+                login = false;
+                menu();
+            } else if ((!user.equals(Name))) {
+                System.out.println("The username is incorrect \n");
+            } else if ((!password.equals(pass))) {
+                System.out.print("The password was incorrect, Try again \n");
+            }
+        }
+    }
+
+    public static int press;
+    public static double TOTAL = 0;
+    public static boolean loop = true;
+
+    public static int menu() {
+        // enter you choice order
+
+
+        double choice;
+        double qty = 0;
+        double ItemQuantity1 = 0, ItemQuantity2 = 0, ItemQuantity3 = 0, ItemQuantity4 = 0, ItemQuantity5 = 0;
+        double Price = 0;
+        double PartialTotal = 0;
+        boolean item1 = false;
+        boolean item2 = false;
+        boolean item3 = false;
+        boolean item4 = false;
+        boolean item5 = false;
+        boolean item6 = false;
+
+        do {
+
+            System.out.println("+====================================+");
+
+            System.out.println(" \t\t WELCOME , ");
+            System.out.println("+====================================+");
+            System.out.println(" \tGAVS HOMEBAKED SWEETS MENU \t");
+            System.out.println(" 1. Chocolate Chip coockies \t $ 50.00 \t");
+            System.out.println(" 2. Yema Cake \t\t\t $ 100.00 \t");
+            System.out.println(" 3. Choco MOist cake in a tub \t $ 120.00 \t ");
+            System.out.println(" 4. Puto Cheese \t\t $ 100 \t");
+            System.out.println(" 5.Banana Cake \t\t\t $ 80 \t");
+            System.out.println("+====================================+");
+
+
+            System.out.print(" Enter Item Code (1-5) : ");
+            System.out.println(" ");
+            choice = scan.nextInt();
+
+            if (choice == 1) // Chocolate chip cookies
+            {   item1 = true;
+                System.out.println(" Your order is  Chocolate chip Cookies");
+                Price = 50;
+                System.out.println(" Price $ : " + Price);
+                System.out.print(" How many ? ");
+                qty = scan.nextInt();
+
+                ItemQuantity1 += qty;
+                PartialTotal = Price * ItemQuantity1;
+
+                TOTAL += PartialTotal;
+                System.out.println(" The partial total is : " + TOTAL);
+                System.out.println(" +---------------------------------+ ");
+            } else if (choice == 2) // Yema cake
+            {   item2 = true;
+                System.out.println(" Your order is  Yema Cake ");
+                Price = 100;
+                System.out.println(" Price $ : " + Price);
+                System.out.print(" How many ? ");
+                qty = scan.nextInt();
+
+                ItemQuantity2 += qty;
+                PartialTotal = Price * ItemQuantity2;
+                TOTAL += PartialTotal;
+                System.out.println(" The partial total is : " + TOTAL);
+                System.out.println(" +---------------------------------+ ");
+
+
+            } else if (choice == 3) {// Chocomoist cake
+                item3 = true;
+
+                System.out.println(" Your order is  Chocomoist Cake ");
+                Price = 120;
+                System.out.println(" Price $ : " + Price);
+                System.out.print(" How many ? ");
+                qty = scan.nextInt();
+                ItemQuantity3 += qty;
+
+                PartialTotal = Price * ItemQuantity3;
+
+                TOTAL += PartialTotal;
+                System.out.println(" The partial total is : " + TOTAL);
+                System.out.println(" +---------------------------------+ ");
+
+
+            } else if (choice == 4) // Yema cake
+            {
+                item4 = true;
+                System.out.println(" Your order is  Puto cheese ");
+                Price = 100;
+                System.out.println(" Price $ : " + Price);
+                System.out.print(" How many ? ");
+                qty = scan.nextInt();
+                ItemQuantity4 += qty;
+
+                PartialTotal = Price * ItemQuantity4;
+                TOTAL += PartialTotal;
+                System.out.println(" The partial total is : " + TOTAL);
+                System.out.println(" +---------------------------------+ ");
+
+            } else if (choice == 5) // Banana cake
+            {
+                item5 = true;
+                System.out.println(" Your order is Banana Cake ");
+                Price = 80;
+                System.out.println(" Price $ : " + Price);
+                System.out.println(" How many ? ");
+                qty = scan.nextInt();
+                ItemQuantity5 += qty;
+                PartialTotal= Price * ItemQuantity5;
+                TOTAL += PartialTotal;
+                System.out.println(" The partial total is : " + TOTAL);
+                System.out.println(" +---------------------------------+ ");
+            }
+
+            //
+            do {
+
+                loop = true;
+                System.out.println(" DO YOU WANT TO ADD ORDER ?  ");
+
+                System.out.println("  Enter [1] to add Order : ");
+                System.out.println(" Enter  [2] to print the Receipt ");
+
+                System.out.print(" ENTER : ");
+                press = scan.nextInt();
+
+
+                if (press == 1) {
+                    break;
+
+
+                 } else if (press == 2) {
+                    System.out.println(" +---------------------------------+ ");
+                    System.out.println(" \t\t " + "RECEIPT" + "\t\t ");
+                    System.out.println(" GAV'S HOMEBAKED SWEETS ");
+
+                    if (item1) System.out.println("1. Chocolate Chip cookies " + "\t\t"  + ItemQuantity1 +"\t\t" + Price);
+
+                        if (item2) {
+                            System.out.println("2. Yema Cake " + "\t\t" + ItemQuantity2 + "\t\t" +Price);
+                    }
+                    if (item3) {
+                        System.out.println("3. Chocomoist Cake" + "\t\t" + ItemQuantity3 + "\t\t" + Price);
+                    }
+                    if (item4) {
+                        System.out.println("4. Puto Cheese" + "\t\t" + ItemQuantity4 + "\t\t" + Price);
+                    }
+                    if (item5) {
+                        System.out.println("5. Banana Cake"+"\t\t" + ItemQuantity5 +"\t\t" + Price );
+                    }
+
+                    loop = false;
+
+                    System.out.println(" +---------------------------------+ ");
+
+                    payment();
+                }
+                else {
+                System.out.println("Invalid input, please try again.");
+                loop = true;
+            }
+            } while (loop);
+        } while (loop);
+
+        return 0;
+
+}
+
+    public static int payment () {
+
+        do {
+            Date date = new Date();
+SimpleDateFormat datetime =  new SimpleDateFormat("MM/dd/YYYY HH:MM:SS");
+            String payment = "";
+            double payment_parsed = 0;
+            double change = 0;
+            double partialTotal = 0;
+            double AllTotal = 0;
+            double vat = TOTAL * 0.12;
+            double NET_TOTAL = 0;
+            try {
+                System.out.println(" Your total is : " + TOTAL);
+                System.out.print(" Enter Payment :  ");
+                payment = scan.next();
+                payment_parsed = Double.parseDouble(payment);
+
+
+                if (payment_parsed < TOTAL) {
+
+                    System.out.println(" NOT ENOUGH MONEY , PLS TRY AGAIN");
+                    loop = true;
+
+                } else {
+                    change = payment_parsed - TOTAL;
+
+                    System.out.println(" CHANGE : " + change);
+                    System.out.println(" CASH : " + payment_parsed);
+                    System.out.println( " VAT:" + vat);
+                    NET_TOTAL = TOTAL - vat;
+                    System.out.println(" NET_TOTAL : " + NET_TOTAL);
+                    System.out.printf("Date/Time: %s%n", datetime.format(date));
+                    order_again ();
+                }
+            }catch (NumberFormatException e) {
+                    System.out.println("Invalid input, please enter a number.");
+                    loop = true;
+                }
